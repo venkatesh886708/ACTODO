@@ -1,37 +1,33 @@
+import { useState } from "react"
+
+function Addtodofrom(props) {
+    const activityArr = props.activityArr
+    const setActivityArr = props.setActivityArr
+
+    const [newactivity, setNewactivity] = useState("")
+
+    function handleChange(evt) {
+        setNewactivity(evt.target.value);
+    }
+
+    function addActivity() {
+        setActivityArr([...activityArr, { id: activityArr.lenght + 1, activity: newactivity }])
+
+    }
 
 
-function AddTodoFrom(props){
 
-       const activityArr   = props.activityArr
-       const setActivityArr  =props.setActivityArr
+    return (
+        <div className="flex flex-col gap-3">
+            <h1 className='text-2xl font-medium'>Manage Activities</h1>
+            <div>
 
-       const [newactivity,setNewActivity] =useState("")
+                <input value={newactivity} onChange={handleChange} type='text' className='border border-black p-1 ' placeholder='Next Activity?' />
+                <button onClick={addActivity} className='bg-black text-white p-1 border border-black'> Add</button>
 
-
-function handleChange(evt)
-{
-setNewActivity(evt.target.value)
-}
-function addActivity() {
-       setActivityArr([...activityArr, {id:activityArr.length+1, activity:newactivity}])
-       setNewActivity("")
-       
-}
-
-       
-return(
-
-       <div className="flex flex-col gap-3">
-       <p className="text-2xl font-bold">Manage Activities</p>
-       <div>
-        <input value={newactivity} onchange={handleChange}  type="text" className=" bg-transparent p-2" placeholder="Next Activity?" />
-        
-        <button onClick={addActivity} className="text-red-700 ">Add</button>
-        
+            </div>
         </div>
-       </div>
-)
+    )
 
 }
-
-export default AddTodoFrom
+export default Addtodofrom
