@@ -12,6 +12,7 @@ function Addtodofrom(props) {
 
     function addActivity() {
         setActivityArr([...activityArr, { id: activityArr.lenght + 1, activity: newactivity }])
+        setNewactivity("")
 
     }
 
@@ -23,7 +24,7 @@ function Addtodofrom(props) {
             <div>
 
                 <input value={newactivity} onChange={handleChange} type='text' className='border border-black p-1 ' placeholder='Next Activity?' />
-                <button onClick={addActivity} className='bg-black text-white p-1 border border-black'> Add</button>
+                <button onClick={addActivity} className='bg-black text-black p-1 border border-black'> Add</button>
 
             </div>
         </div>
